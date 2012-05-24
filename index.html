@@ -1,0 +1,153 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>Untitled Document</title>
+<link type="text/css" rel="stylesheet" href="demo/style.css" />
+<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.5.2/jquery.min.js"></script>
+<script type="text/javascript" src="src/customCheckbox.min.js"></script>
+<script type="text/javascript">
+$(document).ready(function(){ 
+
+
+$('#Go').customCheckbox({on:'checkbox/5.png',off:'checkbox/6.png'});
+
+$('#Yo').customCheckbox({on:'checkbox/checked_1.png',off:'checkbox/nochecked_1.png'});
+
+$('#Yo2').customCheckbox({on:'checkbox/checked_2.png',off:'checkbox/nochecked_2.png'});
+
+$('#Yo3').customCheckbox({on:'checkbox/checked_3.png',off:'checkbox/nochecked_3.png'});
+
+$('#Yo4').customCheckbox({on:'checkbox/checked_4.png',off:'checkbox/nochecked_4.png'});
+
+$('#Yo5').customCheckbox({on:'checkbox/add.png',off:'checkbox/remove.png'});
+
+$('#Yo6').customCheckbox({on:'checkbox/check.gif',off:'checkbox/no_check.gif'});
+
+
+
+});	
+
+function changer()
+{
+	$('#Yo6').attr('checked',($('#Yo6').attr('checked')?false:true)).customCheckbox({on:'checkbox/check.gif',off:'checkbox/no_check.gif'});
+	
+}
+
+</script>
+</head>
+
+<body>
+
+<h1 class="toplogo">Custom Checkbox <br />
+ Jquery Plugin</h1>
+
+<p>
+Custom Checkbox is a jquery plugin for replacing normal checkbox icons with the custom icons proived by the user. Just call the plugin to with the input id and the custom images, your custom checkbox is in action.
+</p>
+
+
+<h1>USAGE</h1>
+
+<p>Just call plugin with the checkbox id and provide the checked and unchecked state images.</p>
+
+<br />
+
+<p>javascript</p>
+<pre>
+
+$(document).ready(function(){
+
+	$('#YourCheckbox').doImage({on:'images/checked_1.png',off:'images/nochecked_1.png'});
+    
+});
+
+</pre>
+
+
+<p>html</p>
+<pre>
+
+&lt;input type=&quot;checkbox&quot; id=&quot;YourCheckbox&quot; /&gt;
+
+</pre>
+
+
+<h1>DEMOS</h1>
+
+<p>click on the buttons</p>
+
+<div id="demo_container">
+
+<p>Demo 1</p>
+
+<p><input type="checkbox" name="Go" id="Go" /></p>
+
+<br />
+
+<p>Demo 2</p>
+<p><input type="checkbox" id="Yo" /></p>
+
+
+<br />
+<p>Demo 3</p>
+<p><input type="checkbox" id="Yo2" /></p>
+
+<br />
+
+<p>Demo 4</p>
+<p><input type="checkbox" id="Yo3" /></p>
+
+<br />
+<p>Demo 5</p>
+<p><input type="checkbox" id="Yo4" /></p>
+
+
+<br />
+<p>Demo 6</p>
+<p><input type="checkbox" id="Yo5" /></p>
+
+<br />
+
+<p>Demo 7</p>
+<p><input type="checkbox" id="Yo6" /></p>
+</div>
+
+
+
+
+<h1>Solution to Known Issues</h1>
+
+<p> The plugin images seem to fail interchanging the icons if the checkbox value was altered using javascript without user clicking on. Use the following solution for the issue. </p>
+
+<p> Here the button <button onclick="return changer();">here</button> is coded to change the value of demo 7 onclick. </p>
+<br />
+
+<p>javascript</p>
+<pre>
+
+function changer()
+{
+	$('#Yo6').attr('checked',($('#Yo6')
+    	.attr('checked')?false:true))
+        .customCheckbox({on:'checkbox/check.gif',off:'checkbox/no_check.gif'});
+	
+}
+
+</pre>
+
+
+<p>html</p>
+<pre>
+
+&lt;button onclick=&quot;return changer();&quot;>here &lt;/button/&gt;
+
+</pre>
+
+<p>Here if you are changing value using javascript, then remember to call the pluggin just after the call. Will set the check box to appear with the changed icon.</p>
+
+<h1>Change Log</h1>
+<p>Version 1.0 (initial)</p>
+
+</body>
+</html>

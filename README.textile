@@ -1,0 +1,69 @@
+h1. Custom Checkbox Jquery Plugin
+
+*Version:* 1.0
+
+*License:* "Dual GPL + MIT"
+
+*Author:* "Mithun Satheesh"
+
+
+h2. About
+
+Custom Checkbox is a jquery plugin for replacing normal checkbox icons with the custom icons proived by the user. Just call the plugin to with the input id and the custom images, your custom checkbox is in action.  
+
+h2. Browser Support
+
+Tested on IE6+, Safari, Chrome, Firefox 3+
+
+h2. Use
+
+Just call plugin with the checkbox id and provide the checked and unchecked state images.
+
+h3. javascript
+
+<pre>
+$(document).ready(function(){
+
+	$('#YourCheckbox').doImage({on:'images/checked_1.png',off:'images/nochecked_1.png'});
+    
+});
+</pre>
+
+h3. html
+
+
+<pre>
+<input type="checkbox" id="YourCheckbox" />
+</pre>
+
+h2. Solution to Known Issues
+
+The plugin images seem to fail interchanging the icons if the checkbox value was altered using javascript without user clicking on. Use the following solution for the issue. 
+
+h4. javascript
+
+<pre>
+function changer()
+{
+	$('#Yo6').attr('checked',($('#Yo6')
+    	.attr('checked')?false:true))
+        .customCheckbox({on:'checkbox/check.gif',off:'checkbox/no_check.gif'});
+	
+}
+</pre>
+
+
+h4. html
+
+<pre>
+<button onclick="return changer();">here </button/>
+</pre>
+
+Here if you are changing value using javascript, then remember to call the pluggin just after the call. Will set the check box to appear with the changed icon.
+
+
+h2. Changelog
+
+*Version 1.0*
+
+* Initial Release
